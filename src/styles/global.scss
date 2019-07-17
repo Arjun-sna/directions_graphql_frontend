@@ -1,0 +1,27 @@
+@import './fonts';
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-family: gotham-regular;
+}
+
+body {
+  margin: 0;
+  background: rgb(243, 243, 243);
+}
+
+:global(.container) {
+  max-width: 1024px;
+  margin: auto;
+}
+
+a, a:focus, a:hover, a:visited {
+  text-decoration: none;
+}
