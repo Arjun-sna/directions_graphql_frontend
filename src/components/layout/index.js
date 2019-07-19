@@ -3,9 +3,9 @@ import cx from 'classnames';
 import Navbar from '~/components/navbar';
 import styles from './styles.scss';
 
-export default ({ children, setShowSideBar }) => (
+export default ({ children }) => (
   <React.Fragment>
-    <Navbar setShowSideBar={setShowSideBar} />
+    <Navbar />
     <div className={cx(styles['main'], 'container')}>
       { children }
     </div>

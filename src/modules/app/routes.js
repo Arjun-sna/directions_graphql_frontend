@@ -3,14 +3,13 @@ import { Switch, Route, Redirect, BrowserRouter as Router } from 'react-router-d
 
 const render = Comp => props => (<Comp {...props} />);
 const Home = render(lazy(() => import('~/modules/home')));
-const RestaurantPage = render(lazy(() => import('~/modules/restaurant')));
 
 const Routes = () => (
   <div>
     <Suspense fallback={<div>loading...</div>}>
       <Router>
         <Switch>
-          <Route path="/all" component={Home} />
+          <Route path="/" component={Home} />
         </Switch>
       </Router>
     </Suspense>
