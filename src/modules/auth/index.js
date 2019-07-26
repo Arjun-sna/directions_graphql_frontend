@@ -20,29 +20,34 @@ export default () => {
             isSubmitting,
           }) => (
             <form onSubmit={handleSubmit}>
-            <div className={styles['input-wrapper']}>
+              <div className={styles['input-wrapper']}>
+                <input
+                  className={styles['input-field']}
+                  type='email'
+                  name='email'
+                  placeholder='Email'
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.email}
+                />
+              </div>
+                {errors.email && touched.email && <div>{errors.email}</div>}
+              <div className={styles['input-wrapper']}> 
+                <input
+                  className={styles['input-field']}
+                  type='password'
+                  name='password'
+                  placeholder='Password'
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.password}
+                />
+              </div>
               <input
-                className={styles['input-field']}
-                type='email'
-                name='email'
-                placeholder='Email'
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.email}
+                className={`${styles['button']} ${styles['centered']} `}
+                type='submit'
+                value='SIGN IN'
               />
-            </div>
-              {errors.email && touched.email && <div>{errors.email}</div>}
-            <div className={styles['input-wrapper']}> 
-              <input
-                className={styles['input-field']}
-                type='password'
-                name='password'
-                placeholder='Password'
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.password}
-              />
-            </div>
             </form>
           )}
           </Formik>
