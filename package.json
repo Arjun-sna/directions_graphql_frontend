@@ -55,6 +55,7 @@
     "classnames": "^2.2.6",
     "dotenv-webpack": "^1.7.0",
     "file-loader": "^4.0.0",
+    "formik": "^1.5.8",
     "graphql": "^14.4.2",
     "lodash": "^4.17.13",
     "prop-types": "^15.7.2",
