@@ -7,7 +7,7 @@ import Routes from './routes';
 import AppContextProvider from './contextProvider';
 
 const apolloClient = new ApolloClient({
-  uri: 'https://directions-graphql.herokuapp.com/graphql'
+  uri: process.env.GRAPHQL_ENDPOINT
 });
 
 export default () => {
