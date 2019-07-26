@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { Formik } from 'formik';
 import { gql } from 'apollo-boost';
 import { Mutation } from 'react-apollo';
+import { object, string } from 'yup';
 
 import styles from './styles.scss';
 
@@ -50,6 +51,11 @@ export default () => {
                 onSubmit={({ username, userIdentifier, password }) => {
                   authAction({ variables: { userIdentifier, password }})
                 }}
+                validationSchema={object().shape({
+                  username: isSignInUp ? string().min(6, 'Minimum length is 6').required('This field is required') : null,
+                  userIdentifier: string().min(6, 'Minimum length is 6').required('This field is required'),
+                  password: string().min(6, 'Minimum length is 6').required('This field is required'),
+                })}
                 initialValues={{ username: '', userIdentifier: '', password: ''}}>
                 {({
                   values,
@@ -60,6 +66,7 @@ export default () => {
                   handleChange,
                   handleSubmit,
                   isSubmitting,
+                  isValid
                 }) => (
                   <form onSubmit={handleSubmit}>
                     {
