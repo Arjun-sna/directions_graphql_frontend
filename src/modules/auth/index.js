@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik } from 'formik';
 
 import styles from './styles.scss';
 
 export default () => {
+  const [isSignInUp, setIsSignInUp ] = useState(false);
+
   return (
     <div className={styles['auth-container']}>
       <div className={styles['auth-wrapper']}>
+        <div style={{textAlign: 'center'}}>
+          <span
+            onClick={() => setIsSignInUp(false)}
+            className={`${styles['auth-action']} ${!isSignInUp && styles['auth-action-active']}`}>
+            Sign In
+          </span>
+          |
+          <span
+            onClick={() => setIsSignInUp(true)}
+            className={`${styles['auth-action']} ${isSignInUp && styles['auth-action-active']}`}>
+            Sign Up
+          </span>
+        </div>
         <Formik
-          initialValues={{ username: '', password: ''}}>
+          initialValues={{ username: '', userIdentifier: '', password: ''}}>
           {({
             values,
             errors,
@@ -20,15 +35,28 @@ export default () => {
             isSubmitting,
           }) => (
             <form onSubmit={handleSubmit}>
+              {
+                isSignInUp && <div className={styles['input-wrapper']}>
+                  <input
+                    className={styles['input-field']}
+                    type='text'
+                    name='username'
+                    placeholder='Username'
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.username}
+                  />
+                </div>
+              }
               <div className={styles['input-wrapper']}>
                 <input
                   className={styles['input-field']}
-                  type='email'
-                  name='email'
-                  placeholder='Email'
+                  type='text'
+                  name='identifier'
+                  placeholder={isSignInUp ? 'Email' : 'Email or Username'}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.email}
+                  value={values.userIdentifier}
                 />
               </div>
                 {errors.email && touched.email && <div>{errors.email}</div>}
@@ -46,7 +74,7 @@ export default () => {
               <input
                 className={`${styles['button']} ${styles['centered']} `}
                 type='submit'
-                value='SIGN IN'
+                value={`SIGN ${isSignInUp ? 'UP' : 'IN'}`}
               />
             </form>
           )}
