@@ -39,11 +39,11 @@
     box-shadow: 0px 2px 5px grey;
 
     &:hover {
-      background-color: #333333E6
+      box-shadow: 0px 5px 5px grey;
     }
 
     &:active {
-      box-shadow: 0px 6px 5px grey;
+      box-shadow: 0px 0px 5px grey;
     }
 
     &:disabled {
