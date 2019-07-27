@@ -6,7 +6,9 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
-    "build": "NODE_ENV=production webpack --mode production --config webpack.prod.js",
+    "redirect": "node scripts/redirect.js",
+    "build-app": "NODE_ENV=production webpack --mode production --config webpack.prod.js", 
+    "build": "npm run build-app && npm run redirect",
     "lint": "eslint ./ --ext .jsx --ext .js"
   },
   "keywords": [],
