@@ -54,7 +54,6 @@
 
   .centered {
     display: block;
-    margin-top: 30px;
   }
 
   .auth-action {
@@ -71,5 +70,9 @@
   .error-message {
     color: red;
     text-align: center;
+  }
+
+  .button-wrapper {
+    margin-top: 30px;
   }
 }

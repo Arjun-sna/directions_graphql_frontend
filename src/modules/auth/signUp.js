@@ -11,12 +11,11 @@ const fetchGraphqlError = (errorObject = {}) => {
 
 export default ({ onSuccess }) => {
   return (
-    <Mutation mutation={SIGN_UP}>
+    <Mutation
+      onCompleted={onSuccess}
+      mutation={SIGN_UP}>
       {(authAction, { data, loading, error }) => {
-        if (data && data.signUp.id) {
-          onSuccess();
-        }
-
+        
         return (
           <AuthForm
             isSignInUp
@@ -25,6 +24,7 @@ export default ({ onSuccess }) => {
             }}
             disabled={loading}
             errorMessage={error && fetchGraphqlError(error)}
+            showLoader={loading}
           />
         )
       }}

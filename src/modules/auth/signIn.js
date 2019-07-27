@@ -16,10 +16,6 @@ export default ({ onSuccess }) => {
       onCompleted={onSuccess}
       >
       {(authAction, { data, loading, error }) => {
-        // if (data && data.signIn.token) {
-        //   onSuccess();
-        //   return null;
-        // }
 
         return (
           <AuthForm
@@ -28,6 +24,7 @@ export default ({ onSuccess }) => {
             }}
             disabled={loading}
             errorMessage={error && fetchGraphqlError(error)}
+            showLoader={loading}
           />
         )
       }}

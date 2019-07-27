@@ -3,6 +3,7 @@ import { Formik } from 'formik';
 import { object, string } from 'yup';
 
 import styles from './styles.scss';
+import Loader from '~/components/loader';
 
 const renderError = (errors, touched, field) => {
   return errors[field] && touched[field] && <div className={styles['error-message']}>{errors[field]}</div>
@@ -12,7 +13,8 @@ export default ({
   onSubmit,
   isSignInUp,
   errorMessage,
-  disabled
+  disabled,
+  showLoader,
 }) => {
   return (
     <Formik
@@ -78,12 +80,17 @@ export default ({
               {errorMessage}
             </div>
           }
-          <input
-            className={`${styles['button']} ${styles['centered']} `}
-            type='submit'
-            value={`SIGN ${isSignInUp ? 'UP' : 'IN'}`}
-            disabled={disabled}
-          />
+          <div className={styles['button-wrapper']}>
+            {
+              showLoader ? <Loader size='xs' /> : 
+              <input
+                className={`${styles['button']} ${styles['centered']} `}
+                type='submit'
+                value={`SIGN ${isSignInUp ? 'UP' : 'IN'}`}
+                disabled={disabled}
+              />
+            }
+          </div>
         </form>
       )}}
       </Formik>
