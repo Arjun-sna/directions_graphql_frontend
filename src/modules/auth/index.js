@@ -19,6 +19,9 @@ const fetchGraphqlError = (errorObject = {}) => {
     return errorObject.graphQLErrors[0].message;
   }
 }
+const renderError = (errors, touched, field) => {
+  return errors[field] && touched[field] && <div className={styles['error-message']}>{errors[field]}</div>
+}
 
 export default () => {
   const [isSignInUp, setIsSignInUp ] = useState(false);
@@ -67,20 +70,23 @@ export default () => {
                   handleSubmit,
                   isSubmitting,
                   isValid
-                }) => (
+                }) => {console.log({errors, touched});return(
                   <form onSubmit={handleSubmit}>
                     {
-                      isSignInUp && <div className={styles['input-wrapper']}>
-                        <input
-                          className={styles['input-field']}
-                          type='text'
-                          name='username'
-                          placeholder='Username'
-                          onChange={handleChange}
-                          onBlur={handleBlur}
-                          value={values.username}
-                        />
-                      </div>
+                      isSignInUp && <>
+                        <div className={styles['input-wrapper']}>
+                          <input
+                            className={styles['input-field']}
+                            type='text'
+                            name='username'
+                            placeholder='Username'
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.username}
+                          />
+                        </div>
+                        { renderError(errors, touched, 'username') }
+                      </>
                     }
                     <div className={styles['input-wrapper']}>
                       <input
@@ -93,7 +99,7 @@ export default () => {
                         value={values.userIdentifier}
                       />
                     </div>
-                      {errors.email && touched.email && <div>{errors.email}</div>}
+                    { renderError(errors, touched, 'userIdentifier') }
                     <div className={styles['input-wrapper']}> 
                       <input
                         className={styles['input-field']}
@@ -105,6 +111,7 @@ export default () => {
                         value={values.password}
                       />
                     </div>
+                    { renderError(errors, touched, 'password') }
                     {
                       error && 
                       <div className={styles['error-message']}>
@@ -118,7 +125,7 @@ export default () => {
                       disabled={loading}
                     />
                   </form>
-                )}
+                )}}
                 </Formik>
             </div>
           </div>
