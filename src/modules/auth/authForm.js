@@ -1,17 +1,9 @@
-import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import React from 'react';
 import { Formik } from 'formik';
-import { gql } from 'apollo-boost';
-import { Mutation } from 'react-apollo';
 import { object, string } from 'yup';
 
 import styles from './styles.scss';
 
-const fetchGraphqlError = (errorObject = {}) => {
-  if (errorObject.graphQLErrors && errorObject.graphQLErrors.length) {
-    return errorObject.graphQLErrors[0].message;
-  }
-}
 const renderError = (errors, touched, field) => {
   return errors[field] && touched[field] && <div className={styles['error-message']}>{errors[field]}</div>
 }
@@ -34,13 +26,10 @@ export default ({
       {({
         values,
         errors,
-        status,
         touched,
         handleBlur,
         handleChange,
         handleSubmit,
-        isSubmitting,
-        isValid
       }) => {console.log({errors, touched});return(
         <form onSubmit={handleSubmit}>
           {

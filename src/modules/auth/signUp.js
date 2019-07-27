@@ -1,6 +1,6 @@
 import React from 'react';
 import { Mutation } from 'react-apollo';
-import { SIGN_IN } from '~/modules/app/gqlQueries';
+import { SIGN_UP } from '~/modules/app/gqlQueries';
 import AuthForm from '~/modules/auth/authForm';
 
 const fetchGraphqlError = (errorObject = {}) => {
@@ -11,16 +11,17 @@ const fetchGraphqlError = (errorObject = {}) => {
 
 export default ({ onSuccess }) => {
   return (
-    <Mutation mutation={SIGN_IN}>
+    <Mutation mutation={SIGN_UP}>
       {(authAction, { data, loading, error }) => {
-        if (data && data.signIn.token) {
+        if (data && data.signUp.id) {
           onSuccess();
         }
 
         return (
           <AuthForm
-            onSubmit={({ userIdentifier, password }) => {
-              authAction({ variables: { userIdentifier, password }})
+            isSignInUp
+            onSubmit={({ username, userIdentifier, password }) => {
+              authAction({ variables: { username, userIdentifier, password }})
             }}
             disabled={loading}
             errorMessage={error && fetchGraphqlError(error)}
