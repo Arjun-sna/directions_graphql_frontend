@@ -1,19 +1,14 @@
 @font-face {
-  font-family: gotham-regular;
-  src: url('./../../assets/fonts/GothamRoundedBook_21018.ttf');
+  font-family: font-regular;
+  src: url('./../../assets/fonts/FuturaPTBook.otf');
 }
 
 @font-face {
-  font-family: gotham-bold;
-  src: url('./../../assets/fonts/GothamRoundedBold_21016.ttf');
+  font-family: font-bold;
+  src: url('./../../assets/fonts/FuturaPTBold.otf');
 }
 
 @font-face {
-  font-family: gotham-medium;
-  src: url('./../../assets/fonts/GothamRoundedLight_21020.ttf');
-}
-
-@font-face {
-  font-family: gotham-light;
-  src: url('./../../assets/fonts/GothamRoundedMedium_21022.ttf');
+  font-family: font-medium;
+  src: url('./../../assets/fonts/FuturaPTMedium.otf');
 }

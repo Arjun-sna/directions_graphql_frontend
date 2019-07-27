@@ -1,25 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from 'react-apollo';
 import Layout from '~/components/layout';
-import LocationPicker from '~/components/locationPicker';
 import Routes from './routes';
 import AppContextProvider from './contextProvider';
 
-export default () => {
-  const [showSideBar, setShowSideBar] = useState(false);
-  useEffect(() => {
-    setTimeout(() => {
-      setShowSideBar(true);
-    }, 500);
-  }, []);
+const apolloClient = new ApolloClient({
+  uri: process.env.GRAPHQL_ENDPOINT
+});
 
+export default () => {
+  
   return (
     <AppContextProvider>
-      <Router>
-        <Layout setShowSideBar={setShowSideBar}>
-          <Routes />
-        </Layout>
-      </Router>
+      <ApolloProvider client={apolloClient}>
+        <Router>
+          <Layout>
+            <Routes />
+          </Layout>
+        </Router>
+      </ApolloProvider>
     </AppContextProvider>
   );
 };

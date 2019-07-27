@@ -1,8 +1,8 @@
 {
-  "name": "nearby",
+  "name": "direction_graphql_frontend",
   "sideEffects": false,
   "version": "1.0.0",
-  "description": "Search restaurants nearby using Zomato API",
+  "description": "Sample Graphql client",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
@@ -49,14 +49,18 @@
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "apisauce": "^1.0.2",
+    "apollo-boost": "^0.4.3",
     "axios": "^0.19.0",
     "babel-eslint": "^8.2.3",
     "classnames": "^2.2.6",
     "dotenv-webpack": "^1.7.0",
     "file-loader": "^4.0.0",
+    "formik": "^1.5.8",
+    "graphql": "^14.4.2",
     "lodash": "^4.17.13",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
+    "react-apollo": "^2.5.8",
     "react-dom": "^16.8.4",
     "react-flexbox-grid": "^2.1.2",
     "react-lazyload": "^2.6.2",
@@ -64,6 +68,7 @@
     "react-places-autocomplete": "^7.2.1",
     "react-router-dom": "^4.3.1",
     "react-transition-group": "^1.2.1",
-    "url-loader": "^2.0.0"
+    "url-loader": "^2.0.0",
+    "yup": "^0.27.0"
   }
 }
