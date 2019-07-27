@@ -11,11 +11,15 @@ const fetchGraphqlError = (errorObject = {}) => {
 
 export default ({ onSuccess }) => {
   return (
-    <Mutation mutation={SIGN_IN}>
+    <Mutation
+      mutation={SIGN_IN}
+      onCompleted={onSuccess}
+      >
       {(authAction, { data, loading, error }) => {
-        if (data && data.signIn.token) {
-          onSuccess();
-        }
+        // if (data && data.signIn.token) {
+        //   onSuccess();
+        //   return null;
+        // }
 
         return (
           <AuthForm
