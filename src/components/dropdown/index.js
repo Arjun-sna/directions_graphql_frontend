@@ -93,8 +93,8 @@ class Dropdown extends Component {
     this.props.onChange(option)
   }
 
-  renderOption (option) {
-    const { renderOption, onOptionClicked } = this.props; 
+  renderOption (option, index) {
+    const { renderOption, keyExtractor } = this.props; 
     let value = option.value
     if (typeof value === 'undefined') {
       value = option.label || option
@@ -112,7 +112,7 @@ class Dropdown extends Component {
 
     return (
       <div
-        key={value}
+        key={keyExtractor ? keyExtractor(option) : index}
         className={optionClass}
         onMouseDown={this.fireChangeEvent.bind(this, option)}
         onClick={this.fireChangeEvent.bind(this, option)}
@@ -130,7 +130,7 @@ class Dropdown extends Component {
         let groupTitle = (<div className={styles[`${baseClassName}-title`]}>
           {option.name}
         </div>)
-        let _options = option.items.map((item) => this.renderOption(item))
+        let _options = option.items.map((item, index) => this.renderOption(item, index))
 
         return (
           <div className={styles[`${baseClassName}-group`]} key={option.name} role='listbox' tabIndex='-1'>

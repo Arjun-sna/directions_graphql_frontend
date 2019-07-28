@@ -12,6 +12,10 @@ const renderSearchResultItem = ({ id, description, formattedSuggestion }) => {
 
 export default ({ onSelect }) => {
   const [searchQuery, setSearchQuery] = useState('');
+  const onSelectResultItem = (selectedItem) => {
+    setSearchQuery(selectedItem.description);
+    onSelect && onSelect(selectedItem);
+  }
 console.log({searchQuery})
   return (
     <PlacesAutoComplete
@@ -25,8 +29,9 @@ console.log({searchQuery})
             <Dropdown
               inputProps={{...getInputProps({placeholder: 'Enter start location...'})}}
               options={suggestions}
-              onChange={onSelect}
+              onChange={onSelectResultItem}
               renderOption={renderSearchResultItem}
+              keyExtractor={({ description }) => description}
             />
           )
         }
