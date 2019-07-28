@@ -16,6 +16,12 @@ export default ({
   placeholder
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [isInputFocused, setInputFocused] = useState(false);
+  const inputProps = {
+    placeholder: placeholder || 'Search here...',
+    onFocus: () => setInputFocused(true),
+    onBlur: () => setInputFocused(false)
+  }
   const onSelectResultItem = (selectedItem) => {
     setSearchQuery(selectedItem.description);
     onSelect && onSelect(selectedItem);
@@ -31,14 +37,15 @@ export default ({
         ({getInputProps, suggestions, getSuggestionItemProps, loading}) => {
           return (
             <Dropdown
-              inputProps={{...getInputProps({placeholder: placeholder || 'Search here...'})}}
+              inputProps={{...getInputProps(inputProps)}}
               options={suggestions}
               onChange={onSelectResultItem}
               renderOption={renderSearchResultItem}
               keyExtractor={({ description }) => description}
-              className={styles['search-root']}
+              className={`${styles['search-root']} ${isInputFocused ? styles['search-root-focused'] : ''}`}
               controlClassName={styles['search-dropdown-control']}
               inputClassName={styles['search-input']}
+              
             />
           )
         }

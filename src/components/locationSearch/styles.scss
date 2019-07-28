@@ -2,13 +2,18 @@
   flex: 1;
   margin: 0 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2), 0 -1px 0px rgba(0,0,0,0.02);
+  box-shadow: 0 0.5px 2px rgba(0,0,0,0.2), 0 -1px 0px rgba(0,0,0,0.02);
   background-color: white;
+}
+
+.search-root-focused {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2), 0 -1px 0px rgba(0,0,0,0.02);
 }
 
 .search-dropdown-control {
   background-color: transparent;
   border: none;
+  border-radius: 8px;
 }
 
 .search-input {
