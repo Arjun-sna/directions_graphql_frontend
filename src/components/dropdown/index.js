@@ -176,7 +176,8 @@ class Dropdown extends Component {
       showArrow,
       options,
       showNoOptionsLabel,
-      inputClassName
+      inputClassName,
+      leftIcon
     } = this.props
 
     const disabledClass = this.props.disabled ? styles['Dropdown-disabled'] : ''
@@ -217,6 +218,9 @@ class Dropdown extends Component {
     return (
       <div className={dropdownClass}>
         <div className={controlClass} onMouseDown={this.handleMouseDown.bind(this)} onTouchEnd={this.handleMouseDown.bind(this)} aria-haspopup='listbox'>
+          {
+            leftIcon && <div className={styles['left-icon-wrapper']}>{leftIcon()}</div>
+          }
           <input
             className={inputClass}
             {...inputProps}

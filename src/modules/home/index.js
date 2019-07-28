@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Script from 'react-load-script';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import LocationSearch from '~/components/locationSearch';
 import styles from './styles.scss';
 
@@ -27,6 +28,9 @@ export default () => {
         <LocationSearch
           placeholder='Enter start location...'
           onSelect={(selectedLocation) => console.log({selectedLocation})}/>
+        <div className={styles['swap']}>
+          <FontAwesomeIcon icon='exchange-alt' color='#00000099' size='lg' />
+        </div>
         <LocationSearch
           placeholder='Enter end location...'
           onSelect={(selectedLocation) => console.log({selectedLocation})}/>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PlacesAutoComplete, { getLatLng, geocodeByAddress } from 'react-places-autocomplete';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Dropdown from '~/components/dropdown';
 import styles from './styles.scss';
 
@@ -42,10 +43,10 @@ export default ({
               onChange={onSelectResultItem}
               renderOption={renderSearchResultItem}
               keyExtractor={({ description }) => description}
-              className={`${styles['search-root']} ${isInputFocused ? styles['search-root-focused'] : ''}`}
-              controlClassName={styles['search-dropdown-control']}
+              className={styles['search-root']}
+              controlClassName={`${styles['search-dropdown-control']} ${isInputFocused ? styles['search-dropdown-control-focused'] : ''}`}
               inputClassName={styles['search-input']}
-              
+              leftIcon={() => <FontAwesomeIcon icon='map-marker-alt' color='#00000099' size='sm' />}
             />
           )
         }

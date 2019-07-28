@@ -1,3 +1,19 @@
 .search-input-wrapper {
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swap {
+  width: 50px;
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    font-size: 20px;
+  }
+
+  &:active {
+    font-size: 16px;
+  }
 }

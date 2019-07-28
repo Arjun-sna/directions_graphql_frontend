@@ -15,9 +15,9 @@
   transition: all 200ms ease;
 }
 
-.Dropdown-control:hover {
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
-}
+// .Dropdown-control:hover {
+//   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+// }
 
 .Dropdown-arrow {
   border-color: #999 transparent transparent;
@@ -93,5 +93,9 @@
 
 .input {
   width: 100%;
-  padding: 8px 30px;
+  padding: 15px;
+}
+
+.left-icon-wrapper {
+  margin: 0 0 0 15px;
 }
