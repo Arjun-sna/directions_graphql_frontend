@@ -124,7 +124,7 @@ class Dropdown extends Component {
   }
 
   buildMenu () {
-    let { options, baseClassName } = this.props
+    let { options, baseClassName, showNoOptionsLabel } = this.props
     let ops = options.map((option) => {
       if (option.type === 'group') {
         let groupTitle = (<div className={styles[`${baseClassName}-title`]}>
@@ -143,9 +143,9 @@ class Dropdown extends Component {
       }
     })
 
-    return ops.length ? ops : <div className={styles[`${baseClassName}-noresults`]}>
+    return ops.length ? ops : showNoOptionsLabel ? (<div className={styles[`${baseClassName}-noresults`]}>
                                 No options found
-    </div>
+    </div>) : null
   }
 
   handleDocumentClick (event) {
@@ -173,7 +173,9 @@ class Dropdown extends Component {
       arrowOpen,
       className,
       inputProps,
-      showArrow
+      showArrow,
+      options,
+      showNoOptionsLabel,
     } = this.props
 
     const disabledClass = this.props.disabled ? styles['Dropdown-disabled'] : ''
@@ -203,7 +205,7 @@ class Dropdown extends Component {
       [styles[arrowClassName]]: !!arrowClassName
     })
 
-    const menu = this.state.isOpen ? <div className={menuClass} aria-expanded='true'>
+    const menu = this.state.isOpen && (options.length || showNoOptionsLabel) ? <div className={menuClass} aria-expanded='true'>
       {this.buildMenu()}
     </div> : null
 
@@ -226,5 +228,5 @@ class Dropdown extends Component {
   }
 }
 
-Dropdown.defaultProps = { baseClassName: 'Dropdown', showArrow: false }
+Dropdown.defaultProps = { baseClassName: 'Dropdown', showArrow: false, showNoOptionsLabel: false }
 export default Dropdown

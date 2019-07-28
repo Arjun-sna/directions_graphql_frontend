@@ -10,13 +10,16 @@ const renderSearchResultItem = ({ id, description, formattedSuggestion }) => {
   )
 }
 
-export default ({ onSelect }) => {
+export default ({
+  onSelect,
+  placeholder
+}) => {
   const [searchQuery, setSearchQuery] = useState('');
   const onSelectResultItem = (selectedItem) => {
     setSearchQuery(selectedItem.description);
     onSelect && onSelect(selectedItem);
   }
-console.log({searchQuery})
+  
   return (
     <PlacesAutoComplete
       value={searchQuery}
@@ -27,7 +30,7 @@ console.log({searchQuery})
         ({getInputProps, suggestions, getSuggestionItemProps, loading}) => {
           return (
             <Dropdown
-              inputProps={{...getInputProps({placeholder: 'Enter start location...'})}}
+              inputProps={{...getInputProps({placeholder: placeholder || 'Search here...'})}}
               options={suggestions}
               onChange={onSelectResultItem}
               renderOption={renderSearchResultItem}
