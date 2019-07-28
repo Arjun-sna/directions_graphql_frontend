@@ -176,6 +176,7 @@ class Dropdown extends Component {
       showArrow,
       options,
       showNoOptionsLabel,
+      inputClassName
     } = this.props
 
     const disabledClass = this.props.disabled ? styles['Dropdown-disabled'] : ''
@@ -183,12 +184,12 @@ class Dropdown extends Component {
 
     const dropdownClass = classNames({
       [styles[`${baseClassName}-root`]]: true,
-      [styles[className]]: !!className,
+      [className]: !!className,
       [styles['is-open']]: this.state.isOpen
     })
     const controlClass = classNames({
       [styles[`${baseClassName}-control`]]: true,
-      [styles[controlClassName]]: !!controlClassName,
+      [controlClassName]: !!controlClassName,
       [styles[disabledClass]]: !!disabledClass
     })
     const placeholderClass = classNames({
@@ -204,6 +205,10 @@ class Dropdown extends Component {
       [styles[`${baseClassName}-arrow`]]: true,
       [styles[arrowClassName]]: !!arrowClassName
     })
+    const inputClass = classNames({
+      [styles['input']]: true,
+      [inputClassName]: !!inputClassName
+    })
 
     const menu = this.state.isOpen && (options.length || showNoOptionsLabel) ? <div className={menuClass} aria-expanded='true'>
       {this.buildMenu()}
@@ -213,7 +218,7 @@ class Dropdown extends Component {
       <div className={dropdownClass}>
         <div className={controlClass} onMouseDown={this.handleMouseDown.bind(this)} onTouchEnd={this.handleMouseDown.bind(this)} aria-haspopup='listbox'>
           <input
-            className={styles['input']}
+            className={inputClass}
             {...inputProps}
           />
           {showArrow && <div className={styles[`${baseClassName}-arrow-wrapper`]}>

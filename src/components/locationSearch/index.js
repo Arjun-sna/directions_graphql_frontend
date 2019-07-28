@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PlacesAutoComplete, { getLatLng, geocodeByAddress } from 'react-places-autocomplete';
 import Dropdown from '~/components/dropdown';
+import styles from './styles.scss';
 
 const renderSearchResultItem = ({ id, description, formattedSuggestion }) => {
   return (
@@ -35,6 +36,9 @@ export default ({
               onChange={onSelectResultItem}
               renderOption={renderSearchResultItem}
               keyExtractor={({ description }) => description}
+              className={styles['search-root']}
+              controlClassName={styles['search-dropdown-control']}
+              inputClassName={styles['search-input']}
             />
           )
         }
