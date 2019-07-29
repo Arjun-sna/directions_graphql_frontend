@@ -8,6 +8,11 @@ import { GET_DIRECTION } from '../app/gqlQueries';
 import Loader from '~/components/loader';
 
 const scriptUrl = `https://maps.googleapis.com/maps/api/js?key=${process.env.GOOGLE_API_KEY}&libraries=places`;
+const fetchGraphqlError = (errorObject = {}) => {
+  if (errorObject.graphQLErrors && errorObject.graphQLErrors.length) {
+    return errorObject.graphQLErrors[0].message;
+  }
+}
 
 export default () => {
   const [isGoogleLibraryScriptLoaded, setGoogleLibraryScriptLoaded] = useState(false);
@@ -60,7 +65,13 @@ export default () => {
                 if (loading) {
                   return <Loader />
                 }
+                if (error) {
+                  return <div>{ fetchGraphqlError(error) }</div>
+                }
                 console.log({data})
+                return (
+                  <div>Fetched Data</div>
+                )
               }
             }
           </Query>
