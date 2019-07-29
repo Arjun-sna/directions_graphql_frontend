@@ -7,7 +7,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
     "redirect": "node scripts/redirect.js",
-    "build-app": "NODE_ENV=production webpack --mode production --config webpack.prod.js", 
+    "build-app": "NODE_ENV=production webpack --mode production --config webpack.prod.js",
     "build": "npm run build-app && npm run redirect",
     "lint": "eslint ./ --ext .jsx --ext .js"
   },
@@ -52,6 +52,11 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "apisauce": "^1.0.2",
     "apollo-boost": "^0.4.3",
+    "apollo-cache-inmemory": "^1.6.2",
+    "apollo-client": "^2.6.3",
+    "apollo-link": "^1.2.12",
+    "apollo-link-error": "^1.1.11",
+    "apollo-link-http": "^1.5.15",
     "axios": "^0.19.0",
     "babel-eslint": "^8.2.3",
     "classnames": "^2.2.6",
@@ -59,6 +64,7 @@
     "file-loader": "^4.0.0",
     "formik": "^1.5.8",
     "graphql": "^14.4.2",
+    "graphql-tag": "^2.10.1",
     "lodash": "^4.17.13",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
