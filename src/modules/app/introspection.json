@@ -1,0 +1,33 @@
+{
+  "__schema": {
+    "types": [
+      {
+        "kind": "UNION",
+        "name": "PointDetails",
+        "possibleTypes": [
+          {
+            "name": "TransitPointDetails"
+          },
+          {
+            "name": "OtherPointDetails"
+          }
+        ]
+      },
+      {
+        "kind": "INTERFACE",
+        "name": "StepNode",
+        "possibleTypes": [
+          {
+            "name": "DriveStep"
+          },
+          {
+            "name": "TransitStep"
+          },
+          {
+            "name": "WalkStep"
+          }
+        ]
+      }
+    ]
+  }
+}
