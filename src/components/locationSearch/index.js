@@ -23,9 +23,12 @@ export default ({
     onFocus: () => setInputFocused(true),
     onBlur: () => setInputFocused(false)
   }
-  const onSelectResultItem = (selectedItem) => {
+  const onSelectResultItem = async (selectedItem) => {
     setSearchQuery(selectedItem.description);
-    onSelect && onSelect(selectedItem);
+    const geoCodeData = await geocodeByAddress(selectedItem.description);
+    const { lat: latitude, lng: longitude } = await getLatLng(geoCodeData[0]);
+    const selectedLocation = { ...selectedItem, latitude, longitude }
+    onSelect && onSelect(selectedLocation);
   }
   
   return (
