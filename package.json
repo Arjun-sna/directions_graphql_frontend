@@ -50,6 +50,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@fortawesome/react-fontawesome": "^0.1.4",
+    "@graphql-codegen/fragment-matcher": "^1.4.0",
     "apisauce": "^1.0.2",
     "apollo-boost": "^0.4.3",
     "apollo-cache-inmemory": "^1.6.2",
