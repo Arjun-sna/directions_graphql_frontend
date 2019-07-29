@@ -1,0 +1,6 @@
+overwrite: true
+schema: "http://localhost:8000/graphql"
+generates:
+  ./src/modules/app/introspection.json:
+    plugins:
+      - "fragment-matcher"
