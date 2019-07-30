@@ -11,6 +11,7 @@
     padding: 10px;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 
   .logo {
@@ -18,8 +19,13 @@
     padding: 5px 0px;
     text-decoration: none;
     color: $black;
+    flex: 1;
     font-family: font-bold;
+  }
 
+  .auth-menu {
+    color: grey;
+    font-size: 18px;
   }
 }
 
