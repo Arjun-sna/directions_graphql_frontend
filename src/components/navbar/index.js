@@ -8,6 +8,9 @@ export default () => (
       <Link to='/' className={styles['logo']}>
         Directions
       </Link>
+      <Link to='/auth' className={styles['auth-menu']}>
+        Sign In
+      </Link>
     </div>
   </div>
 );

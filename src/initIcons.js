@@ -5,6 +5,7 @@ import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons/faMapMarkerAlt
 import { faClock } from '@fortawesome/free-solid-svg-icons/faClock';
 import { faUtensils } from '@fortawesome/free-solid-svg-icons/faUtensils';
 import { faRupeeSign } from '@fortawesome/free-solid-svg-icons/faRupeeSign';
+import { faExchangeAlt } from '@fortawesome/free-solid-svg-icons/faExchangeAlt';
 
 library.add(
   faAngleDown,
@@ -13,4 +14,5 @@ library.add(
   faClock,
   faUtensils,
   faRupeeSign,
+  faExchangeAlt
 );

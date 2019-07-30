@@ -1,0 +1,25 @@
+.search-root {
+  flex: 1;
+}
+
+
+.search-dropdown-control {
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  box-shadow: 0 0.5px 2px rgba(0,0,0,0.2), 0 -1px 0px rgba(0,0,0,0.02);
+  background-color: white;
+}
+
+.search-dropdown-control-focused {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2), 0 -1px 0px rgba(0,0,0,0.02);
+}
+
+.search-input {
+  height: 48px;
+  background-color: transparent;
+  font-size: 20px;
+}
