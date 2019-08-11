@@ -12,8 +12,7 @@ const Loader = ({ size, className }) => (
 Loader.propTypes = {
   size: PropTypes.oneOf([
     'sm',
-    'md',
-    'lg',
+    'xs',
   ]),
 };
 
