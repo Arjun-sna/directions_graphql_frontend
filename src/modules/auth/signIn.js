@@ -2,12 +2,7 @@ import React from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { SIGN_IN } from '~/modules/app/gqlQueries';
 import AuthForm from '~/modules/auth/authForm';
-
-const fetchGraphqlError = (errorObject = {}) => {
-  if (errorObject.graphQLErrors && errorObject.graphQLErrors.length) {
-    return errorObject.graphQLErrors[0].message;
-  }
-}
+import { parseGraphqlError } from '~/utils';
 
 export default ({ onSuccess }) => {
   const mutationOptions = {
@@ -21,7 +16,7 @@ export default ({ onSuccess }) => {
         authAction({ variables: { userIdentifier, password }})
       }}
       disabled={loading}
-      errorMessage={error && fetchGraphqlError(error)}
+      errorMessage={error && parseGraphqlError(error)}
       showLoader={loading}
     />
   )
