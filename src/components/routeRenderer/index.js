@@ -1,4 +1,5 @@
 import React from 'react';
+import Proptypes from 'prop-types';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { LOCAL_USER_DATA } from '~/modules/app/gqlQueries';
@@ -19,9 +20,10 @@ export default ({
     <Switch>
       {
         React.Children.map(children, child => {
-          const { component, ...rest } = child.props;
+          const { component, isPrivate, ...rest } = child.props;
           return (
-            <Route {...rest} render={routeRenderer(component)}/>
+            isPrivate ? <Route {...rest} render={routeRenderer(component)}/> :
+            <Route {...rest} component={component} />
           )
         })
       }
