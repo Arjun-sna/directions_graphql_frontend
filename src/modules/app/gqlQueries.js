@@ -21,6 +21,17 @@ export const SIGN_UP = gql`
   }
 `
 
+export const LOCAL_USER_DATA = gql`
+  query {
+    token @client
+    user @client {
+      email
+      id
+      username
+    }
+  }
+`
+
 export const GET_DIRECTION = gql`
   fragment TransitPointDetailsParts on TransitPointDetails {
     formatedTime
