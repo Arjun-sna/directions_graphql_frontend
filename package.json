@@ -54,6 +54,7 @@
     "@graphql-codegen/introspection": "1.4.0"
   },
   "dependencies": {
+    "@apollo/react-hooks": "^3.0.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@fortawesome/react-fontawesome": "^0.1.4",
@@ -76,7 +77,6 @@
     "lodash": "^4.17.13",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
-    "react-apollo": "^2.5.8",
     "react-dom": "^16.8.4",
     "react-flexbox-grid": "^2.1.2",
     "react-lazyload": "^2.6.2",
