@@ -6,6 +6,7 @@ import { LOCAL_USER_DATA } from '~/modules/app/gqlQueries';
 
 export default () => {
   const { data: { token, user } } = useQuery(LOCAL_USER_DATA);
+  
   return (
     <div className={styles['navbar']}>
       <div className={`${styles['nav-content']} container`}>
