@@ -16,7 +16,7 @@ export default ({ history }) => {
       apolloClient.writeData({
         data: { ...data.signIn }
       })
-      history.push('/home');
+      history.push('/');
     }
   }
 
