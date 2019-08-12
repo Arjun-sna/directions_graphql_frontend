@@ -32,7 +32,8 @@ const authLink = setContext((_, { headers }) => {
 });
 const cache = new InMemoryCache({ fragmentMatcher });
 const initialState = {
-  userData: {}
+  token: null,
+  user: null
 }
 cache.writeData({ data: initialState });
 const client = new ApolloClient({

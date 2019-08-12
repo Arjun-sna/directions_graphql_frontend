@@ -14,9 +14,7 @@ export default ({ history }) => {
     if (data.signIn && data.signIn.token) {
       localStorage.setItem('token', data.signIn.token)
       apolloClient.writeData({
-        data: {
-          userData: data.signIn.user
-        }
+        data: { ...data.signIn }
       })
       history.push('/');
     }
