@@ -8,7 +8,11 @@ import styles from './styles.scss';
 export default ({ history }) => {
   const [isSignInUp, setIsSignInUp ] = useState(false);
   const onSignInSuccess = (data) => {
-    history.push('/');
+    console.log(data);
+    if (data.signIn && data.signIn.token) {
+      localStorage.setItem('token', data.signIn.token)
+      history.push('/');
+    }
   } 
 
   return (
