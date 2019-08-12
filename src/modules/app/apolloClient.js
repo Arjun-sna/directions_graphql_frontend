@@ -30,13 +30,19 @@ const authLink = setContext((_, { headers }) => {
     }
   }
 });
+const cache = new InMemoryCache({ fragmentMatcher });
+const initialState = {
+  userData: {}
+}
+cache.writeData({ data: initialState });
 const client = new ApolloClient({
   link: ApolloLink.from([
     errorHandler,
     authLink,
     httpLink,
   ]),
-  cache: new InMemoryCache({ fragmentMatcher })
+  cache,
 });
+client.onResetStore(() => cache.writeData({ data: initialState }))
 
 export default client;
