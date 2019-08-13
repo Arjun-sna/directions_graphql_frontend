@@ -36,16 +36,20 @@ export default () => {
 
   return (
     <div>
-      <div className={styles['search-input-wrapper']}>
-        <LocationSearch
-          placeholder='Enter start location...'
-          onSelect={setStartPoint}/>
+      <div className={styles['search-input-root']}>
+        <div className={styles['search-input-wrapper']}>
+          <LocationSearch
+            className={styles['search-input']}
+            placeholder='Enter start location...'
+            onSelect={setStartPoint}/>
+          <LocationSearch
+            className={styles['search-input']}
+            placeholder='Enter end location...'
+            onSelect={setEndpoint}/>
+        </div>
         <div className={styles['swap']}>
           <FontAwesomeIcon icon='exchange-alt' color='#00000099' size='lg' />
         </div>
-        <LocationSearch
-          placeholder='Enter end location...'
-          onSelect={setEndpoint}/>
       </div>
       {
         (startPoint && endPoint) && (

@@ -14,7 +14,8 @@ const renderSearchResultItem = ({ id, description, formattedSuggestion }) => {
 
 export default ({
   onSelect,
-  placeholder
+  placeholder,
+  className
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isInputFocused, setInputFocused] = useState(false);
@@ -46,7 +47,7 @@ export default ({
               onChange={onSelectResultItem}
               renderOption={renderSearchResultItem}
               keyExtractor={({ description }) => description}
-              className={styles['search-root']}
+              className={`${styles['search-root']} ${className || ''}`}
               controlClassName={`${styles['search-dropdown-control']} ${isInputFocused ? styles['search-dropdown-control-focused'] : ''}`}
               inputClassName={styles['search-input']}
               leftIcon={() => <FontAwesomeIcon icon='map-marker-alt' color='#00000099' size='sm' />}
