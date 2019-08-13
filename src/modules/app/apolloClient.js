@@ -14,6 +14,7 @@ const fragmentMatcher = new IntrospectionFragmentMatcher({
 const httpLink = new HttpLink({
   uri: process.env.GRAPHQL_ENDPOINT,
 });
+let authToken = null;
 const errorHandler = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors)
     graphQLErrors.map(({ message, locations, path }) =>
@@ -21,14 +22,19 @@ const errorHandler = onError(({ graphQLErrors, networkError }) => {
         `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`,
       ),
     );
-  if (networkError) console.log(`[Network error]: ${networkError}`);
+  if (networkError.statusCode === 401) {
+    authToken = null;
+    console.log(`[Network error]: ${networkError}`)
+  };
 });
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('token');
+  if (!authToken) {
+    authToken = localStorage.getItem('token');
+  }
   return {
     headers: {
       ...headers,
-      'x-token': token || '',
+      'x-token': authToken || '',
     }
   }
 });
