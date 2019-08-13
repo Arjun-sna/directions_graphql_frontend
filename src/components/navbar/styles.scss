@@ -2,16 +2,23 @@
 
 .navbar {
   width: 100%;
-  position: fixed;
   z-index: 2;
   box-shadow: 0px -3px 7px grey;
   background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   .nav-content {
     padding: 10px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .align-center {
+    text-align: center;
   }
 
   .logo {
@@ -26,6 +33,18 @@
   .auth-menu {
     color: grey;
     font-size: 18px;
+  }
+
+  .menu-btn {
+    font-size: 1.5em;
+  }
+  
+  .menu-item {
+    padding: 8px;
+
+    &:hover {
+      background-color: #d8d8d8;
+    }
   }
 }
 

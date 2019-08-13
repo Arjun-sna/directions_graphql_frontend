@@ -1,0 +1,27 @@
+.menu-container {
+  position: relative;
+  display: inline-block;
+
+  .menu-btn {
+    cursor: pointer;
+  }
+
+  .menu-content {
+    display: none;
+    position: absolute;
+    background-color: #FFFFFF;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+    cursor: pointer;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  &:hover {
+    .menu-content {
+      display: block;
+    }
+  }
+}

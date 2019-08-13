@@ -2,12 +2,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.search-input {
+  margin: 0 20px;
+  width: 100%;
+}
+
+.search-input-root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .swap {
   width: 50px;
   text-align: center;
   cursor: pointer;
+  position: absolute;
 
   &:hover {
     font-size: 20px;
@@ -52,4 +66,19 @@
   margin: 5px 0 0 0;
   padding: 10px;
   border-radius: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .search-input {
+    margin: 5px 0;
+  }
+
+  .search-input-wrapper {
+    flex-direction: column;
+  }
+
+  .swap {
+    position: relative;
+    transform: rotate(90deg);
+  }
 }

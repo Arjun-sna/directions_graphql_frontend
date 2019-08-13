@@ -1,9 +1,16 @@
-.main {
-  padding: 80px 10px 20px 10px;
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-@media screen and (max-width: 768px) {
-  .main {
-    padding: 90px 10px 20px 10px;
-  }
+.main {
+  width: 100%;
+  padding: 10px;
 }
+
+// @media screen and (max-width: 768px) {
+//   .main {
+//     padding: 10px;
+//   }
+// }

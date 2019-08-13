@@ -4,6 +4,11 @@ export const SIGN_IN = gql`
   mutation ($userIdentifier: String!, $password: String!) {
     signIn(userIdentifier: $userIdentifier, password: $password) {
       token
+      user {
+        username
+        email
+        id
+      }
     }
   }
 `
@@ -12,6 +17,17 @@ export const SIGN_UP = gql`
   mutation ($userIdentifier: String!, $username: String!, $password: String!) {
     signUp(email: $userIdentifier, username: $username, password: $password) {
       id
+    }
+  }
+`
+
+export const LOCAL_USER_DATA = gql`
+  query {
+    token @client
+    user @client {
+      email
+      id
+      username
     }
   }
 `

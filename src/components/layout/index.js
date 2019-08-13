@@ -4,10 +4,10 @@ import Navbar from '~/components/navbar';
 import styles from './styles.scss';
 
 export default ({ children }) => (
-  <React.Fragment>
+  <div className={styles['app-wrapper']}>
     <Navbar />
     <div className={cx(styles['main'], 'container')}>
       { children }
     </div>
-  </React.Fragment>
+  </div>
 );
