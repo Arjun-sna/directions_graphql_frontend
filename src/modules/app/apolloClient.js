@@ -1,9 +1,11 @@
+import { useState, useEffect } from 'react';
 import { ApolloClient } from 'apollo-client';
 import { InMemoryCache, IntrospectionFragmentMatcher } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
 import { onError } from 'apollo-link-error';
 import { ApolloLink } from 'apollo-link';
 import { setContext } from 'apollo-link-context';
+import { persistCache } from 'apollo-cache-persist';
 import introspectionQueryResultData from './introspection.json';
 
 const fragmentMatcher = new IntrospectionFragmentMatcher({
@@ -36,14 +38,31 @@ const initialState = {
   user: null
 }
 cache.writeData({ data: initialState });
-const client = new ApolloClient({
-  link: ApolloLink.from([
-    errorHandler,
-    authLink,
-    httpLink,
-  ]),
-  cache,
-});
-client.onResetStore(() => cache.writeData({ data: initialState }))
 
-export default client;
+function useApolloClient() {
+  const [apolloClient, setApolloClient] = useState(null);
+  useEffect(() => {
+    async function setUpClient() {
+      await persistCache({
+        cache,
+        storage: window.localStorage
+      });
+      const client = new ApolloClient({
+        link: ApolloLink.from([
+          errorHandler,
+          authLink,
+          httpLink,
+        ]),
+        cache,
+      });
+      client.onResetStore(() => cache.writeData({ data: initialState }));
+      setApolloClient(client)
+    }
+
+    setUpClient();
+  }, [])
+
+  return apolloClient;
+}
+
+export default useApolloClient;
