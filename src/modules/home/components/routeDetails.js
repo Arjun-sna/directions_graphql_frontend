@@ -5,18 +5,20 @@ export default ({
   data
 }) => (
   <div>
-    {
-      data.fare ?
-        <div></div> :
-        <div className={styles['route-detail-section']}>
-          <div className={styles['section-header']}>
-            Fare Details
-          </div>
+      <div className={styles['route-detail-section']}>
+        <div className={styles['section-header']}>
+          Fare Details
+        </div>
+        {
+          data.fare ?
+          <div className={styles['route-details-container']}>
+            {`Trip Fare: ${data.fare.currency} ${data.fare.fareValue}`}
+          </div>:
           <div className={styles['route-details-container']}>
             <span className={styles['detail-text']}>Fare data not available for this route</span>
           </div>
-        </div>
-    }
+        }
+      </div>
     <div className={styles['route-detail-section']}>
       <div className={styles['section-header']}>
         Trip Details

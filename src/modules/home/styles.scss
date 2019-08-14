@@ -1,14 +1,13 @@
 .search-input-wrapper {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
   flex: 1;
 }
 
 .search-input {
-  margin: 0 20px;
-  width: 100%;
+  width: 45%;
 }
 
 .search-input-root {
@@ -71,6 +70,7 @@
 @media screen and (max-width: 768px) {
   .search-input {
     margin: 5px 0;
+    width: 100%;
   }
 
   .search-input-wrapper {
