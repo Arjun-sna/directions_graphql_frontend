@@ -40,11 +40,15 @@
   }
   
   .menu-item {
-    padding: 8px;
+    padding: 8px 18px;
 
     &:hover {
       background-color: #d8d8d8;
     }
+  }
+
+  .menu-red {
+    color: red;
   }
 }
 
