@@ -18,7 +18,7 @@ export default () => {
       endLat: endPoint.latitude,
       endLng: endPoint.longitude
     },
-    travelMode: "driving"
+    travelMode: "transit"
   });
   const handleScriptLoad = () => setGoogleLibraryScriptLoaded(true);
   
