@@ -36,13 +36,13 @@ class Dropdown extends Component {
   }
 
   componentDidMount () {
-    document.addEventListener('click', this.handleDocumentClick, false)
+    // document.addEventListener('click', this.handleDocumentClick, false)
     document.addEventListener('touchend', this.handleDocumentClick, false)
   }
 
   componentWillUnmount () {
     this.mounted = false
-    document.removeEventListener('click', this.handleDocumentClick, false)
+    // document.removeEventListener('click', this.handleDocumentClick, false)
     document.removeEventListener('touchend', this.handleDocumentClick, false)
   }
 
@@ -54,7 +54,7 @@ class Dropdown extends Component {
 
     if (!this.props.disabled) {
       this.setState({
-        isOpen: !this.state.isOpen
+        isOpen: true
       })
     }
   }
@@ -210,7 +210,7 @@ class Dropdown extends Component {
       [styles['input']]: true,
       [inputClassName]: !!inputClassName
     })
-
+    
     const menu = this.state.isOpen && (options.length || showNoOptionsLabel) ? <div className={menuClass} aria-expanded='true'>
       {this.buildMenu()}
     </div> : null
