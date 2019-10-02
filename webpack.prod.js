@@ -1,13 +1,13 @@
-const webpack = require('webpack');
-const merge = require('webpack-merge');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
+const webpack = require("webpack");
+const merge = require("webpack-merge");
+const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const CompressionPlugin = require('compression-webpack-plugin');
-const common = require('./webpack.common.js');
+const CompressionPlugin = require("compression-webpack-plugin");
+const common = require("./webpack.common.js");
 
 module.exports = merge(common, {
-  mode: 'production',
+  mode: "production",
   stats: {
     colors: true,
     hash: true,
@@ -16,7 +16,7 @@ module.exports = merge(common, {
     chunks: true,
     chunkModules: true,
     modules: true,
-    children: true,
+    children: true
   },
   optimization: {
     minimizer: [
@@ -26,28 +26,28 @@ module.exports = merge(common, {
         terserOptions: {
           compress: {
             drop_console: true,
-            comparisons: false,
+            comparisons: false
           },
           mangle: true,
-          sourceMap: true,
+          sourceMap: true
         }
       }),
-      new OptimizeCSSAssetsPlugin({}),
+      new OptimizeCSSAssetsPlugin({})
     ],
     runtimeChunk: false,
     splitChunks: {
       cacheGroups: {
         default: false,
         styles: {
-          name: 'styles',
+          name: "styles",
           test: /\.css$/,
-          chunks: 'all',
+          chunks: "all",
           enforce: true
         },
         commons: {
           test: /[\\/]node_modules[\\/]/,
-          name: 'vendor_app',
-          chunks: 'all',
+          name: "vendor_app",
+          chunks: "all",
           minChunks: 2
         }
       }
@@ -55,15 +55,15 @@ module.exports = merge(common, {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      },
+      "process.env": {
+        NODE_ENV: JSON.stringify("production")
+      }
     }),
     new CompressionPlugin({
-      filename: '[path].gz[query]',
+      filename: "[path].gz[query]",
       test: /\.(js|svg|png|ttf|html|jpeg|jpg)(\?.*)?$/i,
       minRatio: 1,
-      algorithm: 'gzip',
-    }),
-  ],
+      algorithm: "gzip"
+    })
+  ]
 });

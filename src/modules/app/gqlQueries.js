@@ -1,7 +1,7 @@
-import { gql } from 'apollo-boost';
+import { gql } from "apollo-boost";
 
 export const SIGN_IN = gql`
-  mutation ($userIdentifier: String!, $password: String!) {
+  mutation($userIdentifier: String!, $password: String!) {
     signIn(userIdentifier: $userIdentifier, password: $password) {
       token
       user {
@@ -11,15 +11,15 @@ export const SIGN_IN = gql`
       }
     }
   }
-`
+`;
 
 export const SIGN_UP = gql`
-  mutation ($userIdentifier: String!, $username: String!, $password: String!) {
+  mutation($userIdentifier: String!, $username: String!, $password: String!) {
     signUp(email: $userIdentifier, username: $username, password: $password) {
       id
     }
   }
-`
+`;
 
 export const LOCAL_USER_DATA = gql`
   query {
@@ -30,7 +30,7 @@ export const LOCAL_USER_DATA = gql`
       username
     }
   }
-`
+`;
 
 export const GET_DIRECTION = gql`
   fragment TransitPointDetailsParts on TransitPointDetails {
@@ -135,4 +135,4 @@ export const GET_DIRECTION = gql`
       }
     }
   }
-`
+`;
