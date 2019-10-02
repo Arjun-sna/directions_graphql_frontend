@@ -1,11 +1,11 @@
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons/faAngleDown';
-import { faWindowClose } from '@fortawesome/free-solid-svg-icons/faWindowClose';
-import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons/faMapMarkerAlt';
-import { faClock } from '@fortawesome/free-solid-svg-icons/faClock';
-import { faUtensils } from '@fortawesome/free-solid-svg-icons/faUtensils';
-import { faRupeeSign } from '@fortawesome/free-solid-svg-icons/faRupeeSign';
-import { faExchangeAlt } from '@fortawesome/free-solid-svg-icons/faExchangeAlt';
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons/faAngleDown";
+import { faWindowClose } from "@fortawesome/free-solid-svg-icons/faWindowClose";
+import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons/faMapMarkerAlt";
+import { faClock } from "@fortawesome/free-solid-svg-icons/faClock";
+import { faUtensils } from "@fortawesome/free-solid-svg-icons/faUtensils";
+import { faRupeeSign } from "@fortawesome/free-solid-svg-icons/faRupeeSign";
+import { faExchangeAlt } from "@fortawesome/free-solid-svg-icons/faExchangeAlt";
 
 library.add(
   faAngleDown,

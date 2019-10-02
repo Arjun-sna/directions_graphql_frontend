@@ -1,4 +1,4 @@
-import * as Actions from '~/actions/actionTypes';
+import * as Actions from "~/actions/actionTypes";
 
 export default (state, { type, payload }) => {
   switch (type) {
@@ -9,7 +9,7 @@ export default (state, { type, payload }) => {
         restaurantListData: {
           restaurantList: [],
           hasMoreData: true,
-          startFromOffset: 0,
+          startFromOffset: 0
         }
       };
     case Actions.UPDATE_RESTAURANT_LIST:
@@ -17,17 +17,18 @@ export default (state, { type, payload }) => {
         ...state,
         restaurantListData: {
           ...state.restaurantListData,
-          ...payload,
-        },
+          ...payload
+        }
       };
     case Actions.UPDATE_RESTAURANT_LIST_HAS_MORE_DATA:
       return {
         ...state,
         restaurantListData: {
           ...state.restaurantListData,
-          hasMoreData: payload,
+          hasMoreData: payload
         }
-      }
-    default: throw new Error('Unexpected action');
+      };
+    default:
+      throw new Error("Unexpected action");
   }
 };
