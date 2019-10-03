@@ -25,7 +25,7 @@ const errorHandler = onError(({ graphQLErrors, networkError }) => {
         `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
       )
     );
-  if (networkError.statusCode === 401) {
+  if (networkError && networkError.statusCode === 401) {
     authToken = null;
     console.log(`[Network error]: ${networkError}`);
   }
