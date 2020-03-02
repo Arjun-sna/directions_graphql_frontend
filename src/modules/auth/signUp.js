@@ -15,7 +15,7 @@ export default ({ onSuccess }) => {
 
   return (
     <AuthForm
-      isSignInUp
+      isSignUp
       onSubmit={({ username, userIdentifier, password }) => {
         authAction({ variables: { username, userIdentifier, password } });
       }}

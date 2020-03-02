@@ -14,18 +14,12 @@ const renderError = (errors, touched, field) => {
   );
 };
 
-export default ({
-  onSubmit,
-  isSignInUp,
-  errorMessage,
-  disabled,
-  showLoader
-}) => {
+export default ({ onSubmit, isSignUp, errorMessage, disabled, showLoader }) => {
   return (
     <Formik
       onSubmit={onSubmit}
       validationSchema={object().shape({
-        username: isSignInUp
+        username: isSignUp
           ? string()
               .min(6, "Minimum length is 6")
               .required("This field is required")
@@ -50,7 +44,7 @@ export default ({
         console.log({ errors, touched });
         return (
           <form onSubmit={handleSubmit}>
-            {isSignInUp && (
+            {isSignUp && (
               <>
                 <div className={styles["input-wrapper"]}>
                   <input
@@ -71,7 +65,7 @@ export default ({
                 className={styles["input-field"]}
                 type="text"
                 name="userIdentifier"
-                placeholder={isSignInUp ? "Email" : "Email or Username"}
+                placeholder={isSignUp ? "Email" : "Email or Username"}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.userIdentifier}
@@ -100,7 +94,7 @@ export default ({
                 <input
                   className={`${styles["button"]} ${styles["centered"]} `}
                   type="submit"
-                  value={`SIGN ${isSignInUp ? "UP" : "IN"}`}
+                  value={`SIGN ${isSignUp ? "UP" : "IN"}`}
                   disabled={disabled}
                 />
               )}
